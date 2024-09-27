@@ -35,15 +35,6 @@
       "type": "string",
       "default": "Jonathan Becerra"
     },
-    "content": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "blocks",
-      "required": true
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {
@@ -91,14 +82,22 @@
           "localized": true
         }
       },
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "tags": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::tag.tag",
-      "inversedBy": "blogs"
+      "mappedBy": "blogs"
+    },
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
     }
   }
 }

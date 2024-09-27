@@ -820,13 +820,6 @@ export interface ApiBlogBlog extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<'Jonathan Becerra'>;
-    content: Attribute.Blocks &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     slug: Attribute.UID<'api::blog.blog', 'title'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -854,7 +847,7 @@ export interface ApiBlogBlog extends Schema.CollectionType {
           localized: false;
         };
       }>;
-    description: Attribute.String &
+    description: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -862,6 +855,12 @@ export interface ApiBlogBlog extends Schema.CollectionType {
         };
       }>;
     tags: Attribute.Relation<'api::blog.blog', 'manyToMany', 'api::tag.tag'>;
+    content: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
