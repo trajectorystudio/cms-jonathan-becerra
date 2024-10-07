@@ -883,15 +883,21 @@ export interface ApiProjectProject extends Schema.CollectionType {
     singularName: 'project';
     pluralName: 'projects';
     displayName: 'Project';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     name: Attribute.String;
-    case: Attribute.RichText;
+    description: Attribute.RichText;
     slug: Attribute.UID<'api::project.project', 'name'>;
     cover: Attribute.Media;
+    stacks: Attribute.Relation<
+      'api::project.project',
+      'manyToMany',
+      'api::stack.stack'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -923,6 +929,11 @@ export interface ApiStackStack extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required & Attribute.Unique;
     slug: Attribute.UID<'api::stack.stack', 'name'>;
+    projects: Attribute.Relation<
+      'api::stack.stack',
+      'manyToMany',
+      'api::project.project'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
