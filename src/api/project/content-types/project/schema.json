@@ -53,14 +53,13 @@
       "target": "api::stack.stack",
       "inversedBy": "projects"
     },
-    "description": {
+    "case": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "richtext",
-      "required": true
+      "type": "richtext"
     }
   }
 }
