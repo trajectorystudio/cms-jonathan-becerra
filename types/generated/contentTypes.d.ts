@@ -917,7 +917,8 @@ export interface ApiProjectProject extends Schema.CollectionType {
       'manyToMany',
       'api::stack.stack'
     >;
-    description: Attribute.Blocks &
+    description: Attribute.RichText &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
